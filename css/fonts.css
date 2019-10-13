@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?bqqwxc');
-  src:  url('../fonts/icomoon.eot?bqqwxc#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?bqqwxc') format('truetype'),
-    url('../fonts/icomoon.woff?bqqwxc') format('woff'),
-    url('../fonts/icomoon.svg?bqqwxc#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?16ioo');
+  src:  url('../fonts/icomoon.eot?16ioo#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?16ioo') format('truetype'),
+    url('../fonts/icomoon.woff?16ioo') format('woff'),
+    url('../fonts/icomoon.svg?16ioo#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -36,4 +36,7 @@
 }
 .icon-instagram:before {
   content: "\f16d";
+}
+.icon-checkmark:before {
+  content: "\ea10";
 }
