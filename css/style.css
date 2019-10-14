@@ -341,6 +341,7 @@ li {
   margin-right: 10px;
   margin-bottom: 20px;
   position: relative;
+  transition: 0.4s;
 }
 .portfolio__inner-item:hover {
   background: #fff;
@@ -816,4 +817,107 @@ li {
   padding-top: 15px;
   margin-bottom: 40px;
   margin-top: 20px;
+  transition: 0.4s;
+}
+
+.hover-bg2:hover {
+  background: #b27cf5 !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.hover-bg0:hover {
+  background: #fc5f45 !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.hover-bg1:hover {
+  background: #38c695 !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.testimonials {
+  min-height: 100vh;
+  width: 100%;
+  background: url(../img/testimonials-bg.png), #3f4049;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  padding-top: 120px;
+}
+
+.testimonials__header {
+  font-family: "Libre Baskerville", serif;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 80px;
+  color: #313131;
+  color: #fff !important;
+  padding-bottom: 20px;
+}
+
+.testimonials__subtitle {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #616161 !important;
+  font-size: 18px;
+  color: #fff !important;
+  padding-bottom: 120px;
+}
+
+.testimonials__slider {
+  position: relative;
+}
+
+.testimonials__slider-photo {
+  position: absolute;
+  left: -140px;
+  top: -40px;
+  border: 10px solid #a1a0a0;
+  height: 419px;
+}
+
+.testimonials__slider-content {
+  text-align: left;
+  min-height: 310px;
+  width: 820px;
+  background: #fff;
+  margin: 0 auto;
+  padding-left: 120px;
+  padding-right: 70px;
+  border-bottom: 3px solid;
+}
+
+.testimonials__slider-content-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 27px;
+  color: #616161;
+  color: #767676 !important;
+  padding-top: 35px;
+  padding-bottom: 15px;
+}
+
+.testimonials__slider-content-signature {
+  font-family: "Sacramento", cursive;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 80px;
+  color: #272727;
+}
+
+.testimonials__slider-content-name {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #272727;
+  margin-bottom: 10px;
+}
+
+.testimonials__slider-content-profession {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
 }
