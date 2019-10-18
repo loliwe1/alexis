@@ -1220,3 +1220,109 @@ li {
 .subs__butn a {
   color: #fff !important;
 }
+
+.feedback {
+  min-height: 1275px;
+  width: 100%;
+  background: url(../img/feedback-bg.png), #cccccc;
+  background-repeat: no-repeat;
+  background-position: 50% 2px;
+  padding-top: 130px;
+}
+.feedback__header {
+  font-family: "Libre Baskerville", serif;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 80px;
+  color: #313131;
+  margin-bottom: 15px;
+}
+.feedback__subtitle {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #616161 !important;
+  font-size: 18px;
+  margin-bottom: 75px;
+}
+.feedback__form-input, .feedback__form-textarea {
+  text-align: center;
+  padding: 15px 85px;
+  margin: 10px 15px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #616161;
+  border-radius: 5px;
+  border: 2px;
+}
+.feedback__form-textarea {
+  width: 780px;
+  height: 200px;
+  margin-left: 0;
+  margin-right: 0;
+  resize: none;
+}
+.feedback__button {
+  margin-top: 30px;
+}
+.feedback__button a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 80px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.7px;
+  background: #fc5f45 !important;
+  border-radius: 30px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.footer {
+  min-height: 225px;
+  width: 100%;
+  background: #3f4049;
+  display: flex;
+  padding-top: 65px;
+  margin-top: 140px;
+}
+.footer__img {
+  margin-top: 30px;
+}
+.footer__logo {
+  border-bottom: 3px solid;
+  width: 292.5px;
+}
+.footer__item {
+  border-bottom: 3px solid;
+  text-align: left;
+  width: 292.5px;
+  padding-left: 35px;
+  padding-right: 40px;
+}
+.footer__item-header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+.footer__item-content {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #f1e8e7;
+  line-height: 30px;
+}
+.footer__ul {
+  padding: 0;
+  margin-top: 32px;
+}
+.footer__li {
+  display: inline-block;
+  margin-right: 15px;
+}
