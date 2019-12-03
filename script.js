@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', function () {
     let navItem = nav.querySelectorAll('a');
 
         for (let i = 0; i < navItem.length; i++) {
-            
+            console.log(navItem[i]);
             navItem[i].addEventListener('click', event => {
                 event.preventDefault();
                 if(event.target === navItem[i]){
