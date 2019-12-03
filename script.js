@@ -1,46 +1,70 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function () {
     'use strict';
-// anchors -----------------------------------------------------------
+    // anchors -----------------------------------------------------------
     let topNav = document.querySelector('.header__top');
 
-    topNav.addEventListener('mouseover', function(event){
+    topNav.addEventListener('mouseover', function (event) {
         let target = event.target;
-        if(target.tagName === 'A'){
+        if (target.tagName === 'A') {
             target.classList.add('hovers');
         }
     });
-    topNav.addEventListener('mouseout', function(event){
+    topNav.addEventListener('mouseout', function (event) {
         let target = event.target;
-        if(target.tagName === 'A'){
+        if (target.tagName === 'A') {
             target.classList.remove('hovers');
         }
     });
 
-// slider --------------------------------------------------------------
-let sliderItem = document.querySelectorAll('.testimonials__slider');
-let slide1 = document.querySelectorAll('.slider_paddings-item')[0];
-let slide2 = document.querySelectorAll('.slider_paddings-item')[1];
+
+
+    // slider --------------------------------------------------------------
+    let sliderItem = document.querySelectorAll('.testimonials__slider-content');
+    let sliderPaddingItem = document.querySelectorAll('.slider_paddings-item');
+    let sliderPaddings = document.querySelector('.slider_paddings');
+    let slideIndex = 0;
+
+    showSlides(slideIndex);
+
+    function showSlides(slideIndex){
+
+        sliderItem.forEach((item)=> item.style.display = 'none');
+        sliderPaddingItem.forEach(item => item.classList.remove('active_slide'));
+
+        sliderItem[slideIndex].style.display = 'block';
+        sliderPaddingItem[slideIndex].classList.add('active_slide');
+    };
+
+    function currentSlide(n){
+        showSlides(slideIndex = n);
+    };
+
+    sliderPaddings.addEventListener('click', event =>{
+        let target = event.target;
+
+        for(let i = 0; i<sliderPaddingItem.length; i++){
+            
+            if(target.classList.contains('slider_paddings-item') && event.target === sliderPaddingItem[i]){
+                currentSlide(i)
+            }
+        }
+
+    });
 
 
 
-sliderItem.forEach((value, index)=>{
-    if(index != 0){
-        value.style.display = 'none';
-    }
+
+    sliderPaddings.addEventListener('mouseover', event => {
+        let target = event.target;
+        if (target.classList.contains('slider_paddings-item')) {
+            target.classList.add('slider_paddings-item-active');
+        }
+    });
+    
+    sliderPaddings.addEventListener('mouseout', event => {
+        let target = event.target;
+        if (target.classList.contains('slider_paddings-item-active')) {
+            target.classList.remove('slider_paddings-item-active');
+        }
+    }); 
 });
-
-slide1.addEventListener('click', function(){
-    sliderItem[2].style.display = '';
-});
-slide2.addEventListener('click', function(){
-    sliderItem[0].style.display = '';
-    sliderItem[2].style.display = 'none';
-});
-
-
-
-
-});
-
-
-

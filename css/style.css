@@ -877,15 +877,15 @@ li {
   padding-bottom: 120px;
 }
 
-.testimonials__slider {
-  position: relative;
-  display: block;
+.slider {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .testimonials__slider-photo {
   position: absolute;
-  left: 0;
-  top: -40px;
+  left: -350px;
+  top: -55px;
   border: 10px solid #a1a0a0;
   height: 419px;
   z-index: 5;
@@ -900,8 +900,7 @@ li {
   padding-left: 120px;
   padding-right: 70px;
   border-bottom: 3px solid;
-  position: absolute;
-  left: 350px;
+  position: relative;
 }
 
 .testimonials__slider-content-text {
@@ -939,15 +938,42 @@ li {
 
 .slider_paddings {
   text-align: right;
-  margin-top: 320px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .slider_paddings-item {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border: 2px solid white;
   border-radius: 50%;
-  display: inline-block;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.6s;
+  margin-left: 5px;
+}
+
+.slider_paddings-item-active {
+  background-color: #fc5f45 !important;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.6s;
+}
+
+.active_slide {
+  background-color: #fc5f45 !important;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.6s;
 }
 
 .why__us {
