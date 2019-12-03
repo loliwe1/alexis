@@ -880,6 +880,8 @@ li {
 .slider {
   display: flex;
   justify-content: flex-end;
+  transition-duration: 0.5s;
+  transition-property: all;
 }
 
 .testimonials__slider-photo {

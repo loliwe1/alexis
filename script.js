@@ -70,7 +70,6 @@ window.addEventListener('DOMContentLoaded', function () {
     let navItem = nav.querySelectorAll('a');
 
         for (let i = 0; i < navItem.length; i++) {
-            console.log(navItem[i]);
             navItem[i].addEventListener('click', event => {
                 event.preventDefault();
                 if(event.target === navItem[i]){
@@ -82,8 +81,31 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
 
             })
-        }
+        };
 
+// forms ------------------------
+        let forms = document.querySelector('.feedback__form');
+        let formsItem = forms.querySelectorAll('.feedback__form-input');
+
+        forms.addEventListener('click', event => {
+            let target = event.target;
+            if(target.classList.contains('feedback__form-input')){
+                event.target.value = '';
+            };
+
+            target.addEventListener('blur',  () =>{
+                if(target.value === ''){
+                    target.style.color = 'red';
+                    target.style.background = 'black';
+                    target.style.fontSize = '25px';
+                    target.value = 'ТЫ КУДА?'
+                }else {
+                    target.style.background = '';
+                    target.style.fontSize = '';
+                    target.style.color = '';
+                }
+            });
+        })
 
 
 });

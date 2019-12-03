@@ -969,6 +969,8 @@ li {
 .slider{
     display: flex;
     justify-content: flex-end;
+    transition-duration: 0.5s;
+    transition-property: all;
 }
 
 .testimonials__slider-photo {
@@ -990,6 +992,7 @@ li {
     padding-right: 70px;
     border-bottom: 3px solid;
     position: relative;
+ 
 }
 
 .testimonials__slider-content-text {
