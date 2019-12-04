@@ -69,43 +69,89 @@ window.addEventListener('DOMContentLoaded', function () {
     let nav = document.querySelector('.header__top-nav');
     let navItem = nav.querySelectorAll('a');
 
-        for (let i = 0; i < navItem.length; i++) {
-            navItem[i].addEventListener('click', event => {
-                event.preventDefault();
-                if(event.target === navItem[i]){
-                    let anch = document.querySelector(navItem[i].getAttribute('href'));
-                    anch.scrollIntoView({
-                        block: 'start',
-                        behavior: 'smooth'
-                    });
-                }
+    for (let i = 0; i < navItem.length; i++) {
+        navItem[i].addEventListener('click', event => {
+            event.preventDefault();
+            if (event.target === navItem[i]) {
+                let anch = document.querySelector(navItem[i].getAttribute('href'));
+                anch.scrollIntoView({
+                    block: 'start',
+                    behavior: 'smooth'
+                });
+            }
 
-            })
+        })
+    };
+
+    // forms ------------------------
+    let forms = document.querySelector('.feedback__form');
+    let formsItem = forms.querySelectorAll('.feedback__form-input');
+
+    forms.addEventListener('click', event => {
+        let target = event.target;
+        if (target.classList.contains('feedback__form-input')) {
+            event.target.value = '';
         };
 
-// forms ------------------------
-        let forms = document.querySelector('.feedback__form');
-        let formsItem = forms.querySelectorAll('.feedback__form-input');
+        target.addEventListener('blur', () => {
+            if (target.value === '') {
+                target.style.color = 'red';
+                target.style.background = 'black';
+                target.style.fontSize = '16px';
+                target.value = 'ТЫ КУДА?'
+            } else {
+                target.style.background = '';
+                target.style.fontSize = '';
+                target.style.color = '';
+            }
+        });
+    });
 
-        forms.addEventListener('click', event => {
-            let target = event.target;
-            if(target.classList.contains('feedback__form-input')){
-                event.target.value = '';
-            };
+    // Our Team ------------------------------------------------------------
 
-            target.addEventListener('blur',  () =>{
-                if(target.value === ''){
-                    target.style.color = 'red';
-                    target.style.background = 'black';
-                    target.style.fontSize = '25px';
-                    target.value = 'ТЫ КУДА?'
-                }else {
-                    target.style.background = '';
-                    target.style.fontSize = '';
-                    target.style.color = '';
-                }
-            });
-        })
+    let teamAbout = document.querySelectorAll('.team__about');
+    let team = document.querySelector('.team__inner-items');
+    let teamItem = team.querySelectorAll('.team__inner-item');
+
+    let showIndex = 0;
+
+    const color = {
+        0: 'red',
+        1: 'black',
+        '2': 'green',
+        '3': 'yellow'
+    };
+
+    showAbout(showIndex, color);
+
+
+    function showAbout(showIndex) {
+
+        teamItem.forEach(value => value.classList.remove('team__active-item'));
+        teamAbout.forEach(value => value.style.display = 'none');
+
+        teamItem[showIndex].classList.add('team__active-item');
+        teamAbout[showIndex].style.display = '';
+    };
+
+    function currentAbout(n) {
+        showAbout(showIndex = n);
+    }
+
+    team.addEventListener('mouseover', event => {
+        let target = event.target.closest('.team__inner-item');
+
+        for (let i = 0; i < teamItem.length; i++) {
+            if (target && target === teamItem[i]){
+                currentAbout(i);
+                
+            }
+        }
+        
+    })
+
+
+
 
 
 });
