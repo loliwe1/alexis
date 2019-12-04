@@ -1,5 +1,14 @@
-window.addEventListener('DOMContentLoaded', function () {
-    'use strict';
+window.addEventListener('load', function () {
+    'use strict'
+
+    setTimeout(function(){
+        const preloader = document.querySelector('.preloader');
+
+        if(!preloader.classList.contains('done')){
+            preloader.classList.add('done');
+        }
+    },500)
+
     let topNav = document.querySelector('.header__top');
 
     topNav.addEventListener('mouseover', function (event) {
@@ -151,7 +160,10 @@ window.addEventListener('DOMContentLoaded', function () {
     })
 
 
+// video -----------------------------------------------------------------------------
 
+
+//preloader---------------------------------------------------------------------------
 
 
 });
