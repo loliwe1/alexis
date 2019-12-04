@@ -1,13 +1,13 @@
 window.addEventListener('load', function () {
     'use strict'
 
-    setTimeout(function(){
+    setTimeout(function () {
         const preloader = document.querySelector('.preloader');
 
-        if(!preloader.classList.contains('done')){
+        if (!preloader.classList.contains('done')) {
             preloader.classList.add('done');
         }
-    },500)
+    }, 500)
 
     let topNav = document.querySelector('.header__top');
 
@@ -89,50 +89,38 @@ window.addEventListener('load', function () {
                 });
             }
 
-        })
+        });
     };
 
     // forms ------------------------
     let forms = document.querySelector('.feedback__form');
-    let formsItem = forms.querySelectorAll('.feedback__form-input');
 
     forms.addEventListener('click', event => {
         let target = event.target;
+        
         if (target.classList.contains('feedback__form-input')) {
-            event.target.value = '';
+            target.value = '';
+            target.style.border = '1px solid #fc5f45';
+            
         };
 
         target.addEventListener('blur', () => {
-            if (target.value === '') {
-                target.style.color = 'red';
-                target.style.background = 'black';
-                target.style.fontSize = '16px';
-                target.value = 'ТЫ КУДА?'
-            } else {
-                target.style.background = '';
-                target.style.fontSize = '';
-                target.style.color = '';
+            target.style.border = '';
+            if (target.value === ''){
+                target.value = value;
             }
+
         });
     });
 
     // Our Team ------------------------------------------------------------
 
     let teamAbout = document.querySelectorAll('.team__about');
-    let team = document.querySelector('.team__inner-items');
-    let teamItem = team.querySelectorAll('.team__inner-item');
-
+    let team      = document.querySelector('.team__inner-items');
+    let teamItem  = team.querySelectorAll('.team__inner-item');
     let showIndex = 0;
 
-    const color = {
-        0: 'red',
-        1: 'black',
-        '2': 'green',
-        '3': 'yellow'
-    };
-
-    showAbout(showIndex, color);
-
+    showAbout(showIndex);
 
     function showAbout(showIndex) {
 
@@ -151,19 +139,35 @@ window.addEventListener('load', function () {
         let target = event.target.closest('.team__inner-item');
 
         for (let i = 0; i < teamItem.length; i++) {
-            if (target && target === teamItem[i]){
+            if (target && target === teamItem[i]) {
                 currentAbout(i);
-                
+
             }
         }
+
+    });
+
+
+    // video -----------------------------------------------------------------------------
+    const iframe = document.querySelector('.iframe');
+    const video = document.querySelector('.video__inner-plaуer-a');
+
+    iframe.hidden = true;
+
+    video.addEventListener('click',(event)=>{
+        event.preventDefault();
+
         
+        if(iframe.hidden){
+            iframe.hidden = false;
+        }else{
+            iframe.hidden = true;
+        }
+
     })
 
 
-// video -----------------------------------------------------------------------------
 
-
-//preloader---------------------------------------------------------------------------
 
 
 });

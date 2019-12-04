@@ -310,12 +310,17 @@ li {
 .video__inner-plaуer {
   padding-top: 20px;
   padding-bottom: 30px;
+  cursor: pointer;
 }
 .video__inner-text {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 15px;
   color: #fff;
+}
+
+.iframe {
+  transition: 1s all;
 }
 
 .portfolio {

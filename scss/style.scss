@@ -399,6 +399,7 @@ li {
     &__inner-plaуer {
         padding-top: 20px;
         padding-bottom: 30px;
+        cursor: pointer;
     }
 
     &__inner-text {
@@ -407,6 +408,10 @@ li {
         font-size: 15px;
         color: #fff;
     }
+}
+
+.iframe{
+    transition: 1s all; 
 }
 
 //===PORTFOLIO===
