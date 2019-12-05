@@ -149,22 +149,28 @@ window.addEventListener('load', function () {
 
 
     // video -----------------------------------------------------------------------------
-    const iframe = document.querySelector('.iframe');
-    const video = document.querySelector('.video__inner-plaуer-a');
+    const video = document.querySelector('.video');
+    const videoButton = document.querySelector('.video__inner-button');
+    let videoPlayer = document.querySelector('.video__player');
 
-    iframe.hidden = true;
 
-    video.addEventListener('click',(event)=>{
+    videoButton.addEventListener('click', (event)=>{
         event.preventDefault();
-
-        
-        if(iframe.hidden){
-            iframe.hidden = false;
-        }else{
-            iframe.hidden = true;
+        if(video.style.height === '1000px'){
+            video.style.height = '500px';
+            videoPlayer.style.display = 'none';
+            videoButton.classList.remove('video__inner-button-close')
+            videoButton.classList.add('video__inner-button-open')
+        }else {
+            video.style.height = '1000px';
+            videoPlayer.style.display = 'block';
+            videoButton.classList.toggle('video__inner-button-open')
+            videoButton.classList.toggle('video__inner-button-close')
         }
+    });
 
-    })
+    video__inner-button-close
+
 
 
 

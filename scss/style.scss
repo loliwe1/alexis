@@ -70,7 +70,10 @@ html {
     box-sizing: inherit;
 }
 
-
+a{
+    text-decoration: none;
+    
+}
 
 li {
     list-style-type: none;
@@ -365,9 +368,12 @@ li {
 .video {
     background: url(../img/video-bg.jpg) center no-repeat;
     width: 100%;
-    min-height: 500px;
+    height: 500px;
     position: relative;
     z-index: 1;
+    transition-property: height;
+    transition-duration: 0.5s;
+
 
     &::before {
         content: "";
@@ -382,7 +388,7 @@ li {
     &__inner {
         position: relative;
         z-index: 10;
-        padding-top: 130px;
+        padding-top: 100px;
         padding-bottom: 100px;
         text-align: center;
     }
@@ -395,11 +401,34 @@ li {
         line-height: 60px;
         text-align: center;
     }
+    &__inner-button-open:before {
+        content: "\e900";
+        font-family: $font-icon;
+        font-weight: 400;
+        font-size: 100px;
+        text-decoration: none;
+        color: $color1;
+    }
+    &__inner-button-close:before {
+        content: "\ea0d";
+        font-family: $font-icon;
+        font-weight: 400;
+        font-size: 93px;
+        text-decoration: none;
+        color: $color1;
+    }
 
-    &__inner-plaуer {
-        padding-top: 20px;
-        padding-bottom: 30px;
-        cursor: pointer;
+    &__player{
+        display: block;
+        width: 1200px;
+        height: 600px;
+        z-index: 10;
+        margin: 0 auto;
+        padding-bottom: 10px; 
+        display: none;
+        transition-property: all;
+        transition-duration: 0.5s;
+        
     }
 
     &__inner-text {
@@ -408,10 +437,6 @@ li {
         font-size: 15px;
         color: #fff;
     }
-}
-
-.iframe{
-    transition: 1s all; 
 }
 
 //===PORTFOLIO===
