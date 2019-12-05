@@ -77,6 +77,38 @@ window.addEventListener('load', function () {
 
     let nav = document.querySelector('.header__top-nav');
     let navItem = nav.querySelectorAll('a');
+    const logoTop = document.querySelector('.top-logo');
+    const logoBottom = document.querySelector('.bottom-logo');
+
+    const headerButton = document.querySelector('.header__content-inner-button');
+
+    headerButton.addEventListener('click', event =>{
+        event.preventDefault();
+
+        scrollTo({
+            top : 3200,
+            behavior: 'smooth'
+        });
+
+    });
+
+
+
+    logoTop.onclick = function(){
+        scrollTo({
+            top: 0, 
+            behavior: "smooth"
+        });
+    };
+
+    logoBottom.onclick = function(){
+        scrollTo({
+            top: 0, 
+            behavior: "smooth"
+        });
+    };
+
+    
 
     for (let i = 0; i < navItem.length; i++) {
         navItem[i].addEventListener('click', event => {
@@ -159,21 +191,14 @@ window.addEventListener('load', function () {
         if(video.style.height === '1000px'){
             video.style.height = '500px';
             videoPlayer.style.display = 'none';
-            videoButton.classList.remove('video__inner-button-close')
-            videoButton.classList.add('video__inner-button-open')
+            videoButton.classList.remove('video__inner-button-close');
+            videoButton.classList.add('video__inner-button-open');
         }else {
             video.style.height = '1000px';
             videoPlayer.style.display = 'block';
-            videoButton.classList.toggle('video__inner-button-open')
-            videoButton.classList.toggle('video__inner-button-close')
+            videoButton.classList.toggle('video__inner-button-open');
+            videoButton.classList.toggle('video__inner-button-close');
         }
     });
-
-    video__inner-button-close
-
-
-
-
-
 
 });

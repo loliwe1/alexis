@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Wisdom;
+  src: url(../fonts/Wisdom\ Script\ AJ.otf);
+}
 html {
   box-sizing: border-box;
 }
@@ -54,11 +58,23 @@ li {
 
 .header__top {
   width: 100%;
-  max-height: 65px;
+  max-height: 75px;
   position: fixed;
   z-index: 100;
   background: white;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.25);
+}
+.header__top .top-logo {
+  font-family: Wisdom;
+  font-size: 50px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #616161;
+  cursor: pointer;
+  font-weight: 500;
+}
+.header__top .top-logo span {
+  color: #fc5f45 !important;
 }
 .header__top-nav li {
   display: inline-block;
@@ -382,6 +398,7 @@ li {
   position: relative;
   transition: 0.4s;
   z-index: 20;
+  cursor: pointer;
 }
 .portfolio__inner-item:hover {
   background: #fff;
@@ -1414,6 +1431,19 @@ li {
 .footer__li {
   display: inline-block;
   margin-right: 15px;
+}
+
+.bottom-logo {
+  font-family: Wisdom;
+  font-size: 50px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+.bottom-logo span {
+  color: #fc5f45 !important;
 }
 
 .preloader {
