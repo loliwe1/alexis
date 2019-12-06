@@ -197,6 +197,22 @@ window.addEventListener('load', function () {
         }
     });
 
+    // Modal -----------------------------------------------------------
+    const modal = document.querySelector('.overlay');
+    const modalClose = document.querySelector('.close');
+    let modalButton = document.querySelector('.modal__button')
+    modalButton.addEventListener('click',  () => {
+        modal.style.display = 'block';
+        document.body.prepend(modal);
+        document.body.style.overflow = 'hidden';
+    });
+    modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    })
+ 
+
+
 
     // Animate On Scroll Library (https://michalsnik.github.io/aos/)--------------------------
 
