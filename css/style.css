@@ -414,9 +414,6 @@ li {
   background-repeat: no-repeat;
   background-position-x: center;
 }
-.team__active-item {
-  border: 3px solid;
-}
 .team__header {
   font-family: "Libre Baskerville", serif;
   font-weight: bold;
@@ -443,6 +440,11 @@ li {
   padding: 6px;
   border-bottom: 3px solid;
   cursor: pointer;
+}
+.team__active-item {
+  border-top: 0.5px solid;
+  border-left: 0.5px solid;
+  border-right: 0.5px solid;
 }
 .team__inner-item-name {
   font-family: "Poppins", sans-serif;
@@ -940,7 +942,7 @@ li {
   top: -55px;
   border: 10px solid #a1a0a0;
   height: 419px;
-  z-index: 5;
+  z-index: 15;
 }
 
 .testimonials__slider-content {
@@ -1359,8 +1361,11 @@ li {
   font-weight: 400;
   font-size: 16px;
   color: #616161;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid #efefef;
+}
+.feedback__form-input input:focus::-webkit-input-placeholder, .feedback__form-textarea input:focus::-webkit-input-placeholder {
+  color: transparent;
 }
 .feedback__form-textarea {
   width: 780px;

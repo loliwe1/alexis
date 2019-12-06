@@ -512,9 +512,6 @@ li {
     background-repeat: no-repeat;
     background-position-x: center;
 
-    &__active-item{
-        border: 3px solid;
-    }
 
     &__header {
         @include headers();
@@ -539,6 +536,12 @@ li {
         padding: 6px;
         border-bottom: 3px solid;
         cursor: pointer;
+    }
+    &__active-item{
+        border-top: 0.5px solid;
+        border-left: 0.5px solid;
+        border-right: 0.5px solid;
+
     }
 
     &__inner-item-name {
@@ -1033,7 +1036,7 @@ li {
     top: -55px;
     border: 10px solid #a1a0a0;
     height: 419px;
-    z-index: 5;
+    z-index: 15;
 }
 
 .testimonials__slider-content {
@@ -1425,8 +1428,13 @@ li {
         font-weight: 400;
         font-size: 16px;
         color: #616161;
-        border-radius: 5px;
-        border: 2px;
+        border-radius: 4px;
+        border: 1px solid #efefef;
+
+        
+        input:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
 
     }
 
@@ -1437,6 +1445,8 @@ li {
         margin-right: 0;
         resize: none;
     }
+
+    
     &__button{
         margin-top: 30px;
     }

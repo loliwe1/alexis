@@ -82,11 +82,11 @@ window.addEventListener('load', function () {
 
     const headerButton = document.querySelector('.header__content-inner-button');
 
-    headerButton.addEventListener('click', event =>{
+    headerButton.addEventListener('click', event => {
         event.preventDefault();
 
         scrollTo({
-            top : 3200,
+            top: 3200,
             behavior: 'smooth'
         });
 
@@ -94,21 +94,21 @@ window.addEventListener('load', function () {
 
 
 
-    logoTop.onclick = function(){
+    logoTop.onclick = function () {
         scrollTo({
-            top: 0, 
+            top: 0,
             behavior: "smooth"
         });
     };
 
-    logoBottom.onclick = function(){
+    logoBottom.onclick = function () {
         scrollTo({
-            top: 0, 
+            top: 0,
             behavior: "smooth"
         });
     };
 
-    
+
 
     for (let i = 0; i < navItem.length; i++) {
         navItem[i].addEventListener('click', event => {
@@ -126,30 +126,26 @@ window.addEventListener('load', function () {
 
     // forms ------------------------
     let forms = document.querySelector('.feedback__form');
+    let textarea = document.querySelector('.feedback__form-textarea');
 
-    forms.addEventListener('click', event => {
+    forms.addEventListener('click', (event) => {
         let target = event.target;
-        
+
         if (target.classList.contains('feedback__form-input')) {
-            target.value = '';
             target.style.border = '1px solid #fc5f45';
-            
-        };
-
-        target.addEventListener('blur', () => {
-            target.style.border = '';
-            if (target.value === ''){
-                target.value = value;
-            }
-
-        });
+            console.log(target.placeholder.style)
+        }
     });
+
+
+
+    // target.style.border = '1px solid #fc5f45';
 
     // Our Team ------------------------------------------------------------
 
     let teamAbout = document.querySelectorAll('.team__about');
-    let team      = document.querySelector('.team__inner-items');
-    let teamItem  = team.querySelectorAll('.team__inner-item');
+    let team = document.querySelector('.team__inner-items');
+    let teamItem = team.querySelectorAll('.team__inner-item');
     let showIndex = 0;
 
     showAbout(showIndex);
@@ -186,19 +182,47 @@ window.addEventListener('load', function () {
     let videoPlayer = document.querySelector('.video__player');
 
 
-    videoButton.addEventListener('click', (event)=>{
+    videoButton.addEventListener('click', (event) => {
         event.preventDefault();
-        if(video.style.height === '1000px'){
+        if (video.style.height === '1000px') {
             video.style.height = '500px';
             videoPlayer.style.display = 'none';
             videoButton.classList.remove('video__inner-button-close');
             videoButton.classList.add('video__inner-button-open');
-        }else {
+        } else {
             video.style.height = '1000px';
             videoPlayer.style.display = 'block';
             videoButton.classList.toggle('video__inner-button-open');
             videoButton.classList.toggle('video__inner-button-close');
         }
     });
+
+
+    // Animate On Scroll Library (https://michalsnik.github.io/aos/)--------------------------
+
+    AOS.init({
+        // Global settings:
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: 'aos-init', // class applied after initialization
+        animatedClassName: 'aos-animate', // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+        
+      
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        offset: 120, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 2000, // values from 0 to 3000, with step 50ms
+        easing: 'ease', // default easing for AOS animations
+        once: true, // whether animation should happen only once - while scrolling down
+        mirror: false, // whether elements should animate out while scrolling past them
+        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+      
+      });
+
+
 
 });
