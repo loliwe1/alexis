@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
     'use strict'
-
+// Preloader-----------------------------------------------------
     setTimeout(function () {
         const preloader = document.querySelector('.preloader');
 
@@ -8,6 +8,7 @@ window.addEventListener('load', function () {
             preloader.classList.add('done');
         }
     }, 500)
+// Top navigation --------------------------------------------
 
     let topNav = document.querySelector('.header__top');
 
@@ -125,21 +126,31 @@ window.addEventListener('load', function () {
     };
 
     // forms ------------------------
-    let forms = document.querySelector('.feedback__form');
-    let textarea = document.querySelector('.feedback__form-textarea');
+    let form = document.forms.feedback;
 
-    forms.addEventListener('click', (event) => {
+    form.addEventListener('focusin', event => {
         let target = event.target;
 
-        if (target.classList.contains('feedback__form-input')) {
-            target.style.border = '1px solid #fc5f45';
-            console.log(target.placeholder.style)
+        for (let i = 0; i < form.elements.length; i++) {
+            if (target === form[i]) {
+                target.style.border = '1px solid #fc5f45';
+            }
         }
-    });
+    })
+
+    form.addEventListener('focusout', event => {
+        let target = event.target;
+
+        for (let i = 0; i < form.elements.length; i++) {
+            if (target === form[i]) {
+                target.style.border = '1px solid #efefef';
+            }
+        }
+    })
 
 
 
-    // target.style.border = '1px solid #fc5f45';
+
 
     // Our Team ------------------------------------------------------------
 
@@ -216,17 +227,17 @@ window.addEventListener('load', function () {
     modal.addEventListener('click', event => {
         let target = event.target;
 
-        if(target.classList.contains('overlay')){
-                div.style.display = 'none';
-                modalName.value = '';
-                modalEmail.value = '';
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
+        if (target.classList.contains('overlay')) {
+            div.style.display = 'none';
+            modalName.value = '';
+            modalEmail.value = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
         }
     });
 
     document.addEventListener('keydown', event => {
-        if(event.key === 'Escape'){
+        if (event.key === 'Escape') {
             div.style.display = 'none';
             modalName.value = '';
             modalEmail.value = '';
@@ -237,29 +248,29 @@ window.addEventListener('load', function () {
 
     modalSubmitButton.addEventListener('click', event => {
         event.preventDefault();
-        if(modalName.value && modalName.value.length > 2 && modalName.value.length < 10 && nameReg.test(modalName.value) && modalEmail.value && mailReg.test(modalEmail.value)){
-            
+        if (modalName.value && modalName.value.length > 2 && modalName.value.length < 10 && nameReg.test(modalName.value) && modalEmail.value && mailReg.test(modalEmail.value)) {
+
             div.textContent = `Thanks ${modalName.value}! We will contact you shortly;)`;
             modalClose.after(div);
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 div.style.display = 'none';
                 modalName.value = '';
                 modalEmail.value = '';
                 modal.style.display = 'none';
                 document.body.style.overflow = '';
 
-            },1500);
-        }else {
+            }, 1500);
+        } else {
             div.style.cssText = `color: red;
                                  font-size: 20px;
                                  padding-left: 35px;`
-            div.textContent =`Invalid username or mailing address`;
+            div.textContent = `Invalid username or mailing address`;
             modalClose.after(div);
         }
     });
 
-    modalButton.addEventListener('click',  () => {
+    modalButton.addEventListener('click', () => {
         modal.style.display = 'block';
         document.body.prepend(modal);
         document.body.style.overflow = 'hidden';
@@ -275,7 +286,7 @@ window.addEventListener('load', function () {
     pricingTable.addEventListener('click', event => {
         let target = event.target;
 
-        if(target.classList.contains('pricing__table-item-button')){
+        if (target.classList.contains('pricing__table-item-button')) {
             modal.style.display = 'block';
             document.body.prepend(modal);
             document.body.style.overflow = 'hidden';
@@ -285,29 +296,72 @@ window.addEventListener('load', function () {
     // Inputs validation-------------------------------------
     let inputButton = document.querySelector('.subs__butn');
     let inputArea = document.querySelector('.subscribe__button-subs');
+    let feedbackButton = document.querySelector('.feedback__button');
+    let feedbackButtonEmail = document.querySelector('.feedback__email');
+    let feedbackForm = document.querySelector('.feedback__form');
+
+    inputArea.addEventListener('focus', ()=> {
+        inputArea.style.border = '2px solid #fc5f45'
+    })
+
+    inputArea.addEventListener('blur', ()=> {
+        inputArea.style.border = '2px solid #efefef'
+    })
 
     inputButton.addEventListener('click', event => {
         event.preventDefault();
-        if(inputArea.value && mailReg.test(inputArea.value)){
+        if (inputArea.value && mailReg.test(inputArea.value)) {
+            div.style.cssText = `color: #fc5f45;
+                                 font-size: 20px;
+                                 padding-left: 35px;
+                                 font-weight: bold`;
             div.textContent = `Thanks! We will contact you shortly;)`;
             inputButton.after(div);
             inputArea.value = '';
 
-            setTimeout(()=>{
-                div.style.display = 'none';
-            },3000);
 
+            setTimeout(() => {
+                div.style.display = 'none';
+            }, 3000);
+
+        } else {
+            div.style.cssText = `color: red;
+                                 font-size: 20px;
+                                 padding-left: 35px;`
+            div.textContent = `Invalid mailing address`;
+            inputButton.after(div);
+        }
+    });
+
+    feedbackButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        if(feedbackButtonEmail.value && mailReg.test(feedbackButtonEmail.value) ) {
+            div.style.cssText = `color: #fc5f45;
+                                 font-size: 20px;
+                                 padding-left: 35px;
+                                 font-weight: bold`;
+            div.textContent = `Thanks! We will contact you shortly;)`;
+            feedbackForm.before(div);
+
+            for (let i = 0; i < form.elements.length; i++) {
+                form[i].value = '';
+            }
+
+            setTimeout(() => {
+                div.style.display = 'none';
+            }, 3000);
         }else {
             div.style.cssText = `color: red;
                                  font-size: 20px;
                                  padding-left: 35px;`
-            div.textContent =`Invalid username or mailing address`;
-            inputButton.after(div);
+            div.textContent = `Invalid mailing address`;
+            feedbackForm.before(div);
         }
-    })
+    });
 
 
- 
+
+
 
 
 
@@ -323,8 +377,8 @@ window.addEventListener('load', function () {
         disableMutationObserver: false, // disables automatic mutations' detections (advanced)
         debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
         throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-        
-      
+
+
         // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
         offset: 120, // offset (in px) from the original trigger point
         delay: 0, // values from 0 to 3000, with step 50ms
@@ -333,8 +387,8 @@ window.addEventListener('load', function () {
         once: true, // whether animation should happen only once - while scrolling down
         mirror: false, // whether elements should animate out while scrolling past them
         anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-      
-      });
+
+    });
 
 
 
