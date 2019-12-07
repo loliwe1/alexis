@@ -205,9 +205,13 @@ window.addEventListener('load', function () {
     let modalEmail = document.querySelector('.modal_email');
     let modalName = document.querySelector('.modal_name');
     let pricingTable = document.querySelector('.pricing__table');
-    let regExp = /^\w[\w\-._]+[@][a-zA-Z1-9\-_]+[.][a-zA-Z]+$/;
+    let mailReg = /^\w[\w\-._]+[@][a-zA-Z1-9\-_]+[.][a-zA-Z]+$/;
     let nameReg = /^[A-Za-z]+$/;
     const div = document.createElement('div');
+    div.style.cssText = `color: #fc5f45;
+                         font-size: 20px;
+                         padding-left: 35px;
+                         font-weight: bold`
 
     modal.addEventListener('click', event => {
         let target = event.target;
@@ -233,11 +237,8 @@ window.addEventListener('load', function () {
 
     modalSubmitButton.addEventListener('click', event => {
         event.preventDefault();
-        if(modalName.value && modalName.value.length > 2 && modalName.value.length < 10 && nameReg.test(modalName.value) && modalEmail.value && regExp.test(modalEmail.value)){
-            div.style.cssText = `color: #fc5f45;
-                                 font-size: 20px;
-                                 padding-left: 35px;
-                                 font-weight: bold`
+        if(modalName.value && modalName.value.length > 2 && modalName.value.length < 10 && nameReg.test(modalName.value) && modalEmail.value && mailReg.test(modalEmail.value)){
+            
             div.textContent = `Thanks ${modalName.value}! We will contact you shortly;)`;
             modalClose.after(div);
 
@@ -280,7 +281,31 @@ window.addEventListener('load', function () {
             document.body.style.overflow = 'hidden';
         }
     });
-    
+
+    // Inputs validation-------------------------------------
+    let inputButton = document.querySelector('.subs__butn');
+    let inputArea = document.querySelector('.subscribe__button-subs');
+
+    inputButton.addEventListener('click', event => {
+        event.preventDefault();
+        if(inputArea.value && mailReg.test(inputArea.value)){
+            div.textContent = `Thanks! We will contact you shortly;)`;
+            inputButton.after(div);
+            inputArea.value = '';
+
+            setTimeout(()=>{
+                div.style.display = 'none';
+            },3000);
+
+        }else {
+            div.style.cssText = `color: red;
+                                 font-size: 20px;
+                                 padding-left: 35px;`
+            div.textContent =`Invalid username or mailing address`;
+            inputButton.after(div);
+        }
+    })
+
 
  
 
