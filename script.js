@@ -204,10 +204,10 @@ window.addEventListener('load', function () {
     let modalSubmitButton = document.querySelector('.submit__button');
     let modalEmail = document.querySelector('.modal_email');
     let modalName = document.querySelector('.modal_name');
+    let pricingTable = document.querySelector('.pricing__table');
     let regExp = /^\w[\w\-._]+[@][a-zA-Z1-9\-_]+[.][a-zA-Z]+$/;
     let nameReg = /^[A-Za-z]+$/;
     const div = document.createElement('div');
-
 
     modal.addEventListener('click', event => {
         let target = event.target;
@@ -230,7 +230,6 @@ window.addEventListener('load', function () {
             document.body.style.overflow = '';
         }
     })
-
 
     modalSubmitButton.addEventListener('click', event => {
         event.preventDefault();
@@ -270,7 +269,18 @@ window.addEventListener('load', function () {
         modalEmail.value = '';
         modal.style.display = 'none';
         document.body.style.overflow = '';
-    })
+    });
+
+    pricingTable.addEventListener('click', event => {
+        let target = event.target;
+
+        if(target.classList.contains('pricing__table-item-button')){
+            modal.style.display = 'block';
+            document.body.prepend(modal);
+            document.body.style.overflow = 'hidden';
+        }
+    });
+    
 
  
 
