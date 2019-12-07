@@ -201,15 +201,77 @@ window.addEventListener('load', function () {
     const modal = document.querySelector('.overlay');
     const modalClose = document.querySelector('.close');
     let modalButton = document.querySelector('.modal__button')
+    let modalSubmitButton = document.querySelector('.submit__button');
+    let modalEmail = document.querySelector('.modal_email');
+    let modalName = document.querySelector('.modal_name');
+    let regExp = /^\w[\w\-._]+[@][a-zA-Z1-9\-_]+[.][a-zA-Z]+$/;
+    let nameReg = /^[A-Za-z]+$/;
+    const div = document.createElement('div');
+
+
+    modal.addEventListener('click', event => {
+        let target = event.target;
+
+        if(target.classList.contains('overlay')){
+                div.style.display = 'none';
+                modalName.value = '';
+                modalEmail.value = '';
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if(event.key === 'Escape'){
+            div.style.display = 'none';
+            modalName.value = '';
+            modalEmail.value = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    })
+
+
+    modalSubmitButton.addEventListener('click', event => {
+        event.preventDefault();
+        if(modalName.value && modalName.value.length > 2 && modalName.value.length < 10 && nameReg.test(modalName.value) && modalEmail.value && regExp.test(modalEmail.value)){
+            div.style.cssText = `color: #fc5f45;
+                                 font-size: 20px;
+                                 padding-left: 35px;
+                                 font-weight: bold`
+            div.textContent = `Thanks ${modalName.value}! We will contact you shortly;)`;
+            modalClose.after(div);
+
+            setTimeout(()=>{
+                div.style.display = 'none';
+                modalName.value = '';
+                modalEmail.value = '';
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+
+            },1500);
+        }else {
+            div.style.cssText = `color: red;
+                                 font-size: 20px;
+                                 padding-left: 35px;`
+            div.textContent =`Invalid username or mailing address`;
+            modalClose.after(div);
+        }
+    });
+
     modalButton.addEventListener('click',  () => {
         modal.style.display = 'block';
         document.body.prepend(modal);
         document.body.style.overflow = 'hidden';
     });
     modalClose.addEventListener('click', () => {
+        div.style.display = 'none';
+        modalName.value = '';
+        modalEmail.value = '';
         modal.style.display = 'none';
         document.body.style.overflow = '';
     })
+
  
 
 

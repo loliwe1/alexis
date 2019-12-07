@@ -1576,7 +1576,7 @@ li {
 
 .modal_window{
     width: 450px;
-    height: 235px;
+    height: 245px;
     background: #cccccc;
     margin: 1px auto;
     position: fixed;
@@ -1624,7 +1624,7 @@ li {
     font-weight: 400;
     font-size: 20px;
     text-decoration: none;
-    color: black;
+    color: white;
     cursor: pointer;
 
 }
@@ -1634,9 +1634,10 @@ li {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     z-index: 20;
     display: none;
     transition-property: all;
     transition-duration: 3s;
+    z-index: 999;
   }
