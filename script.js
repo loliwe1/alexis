@@ -163,10 +163,7 @@ window.addEventListener('load', function () {
 
     function showAbout(showIndex) {
 
-        teamItem.forEach(value => value.classList.remove('team__active-item'));
         teamAbout.forEach(value => value.style.display = 'none');
-
-        teamItem[showIndex].classList.add('team__active-item');
         teamAbout[showIndex].style.display = '';
     };
 
@@ -180,6 +177,7 @@ window.addEventListener('load', function () {
         for (let i = 0; i < teamItem.length; i++) {
             if (target && target === teamItem[i]) {
                 currentAbout(i);
+                teamAbout[i].classList.add(`team__about-triangle${i}`);
 
             }
         }
