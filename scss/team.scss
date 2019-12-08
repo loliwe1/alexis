@@ -1,0 +1,172 @@
+@import 'mixins';
+.team {
+    min-height: 1230px;
+    background: url(../img/team-bg.png), $bg-color;
+    background-repeat: no-repeat;
+    background-position-x: center;
+
+
+    &__header {
+        @include headers();
+        padding-top: 120px;
+    }
+
+    &__subtitle {
+        @include subtitle();
+        padding-top: 20px;
+        padding-bottom: 70px;
+    }
+
+    &__inner-items {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+
+    }
+
+    &__inner-item {
+        background: #fff;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+        padding: 6px;
+        border-bottom: 3px solid;
+        cursor: pointer;
+
+        
+    }
+    &__inner-item-name {
+        @include paragraphs();
+        font-weight: 500;
+        font-size: 20px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+
+    &__inner-item-profession {
+        @include paragraphs();
+        font-size: 13px;
+        line-height: 15px;
+        padding-bottom: 15px;
+    }
+
+    &__about {
+        background: #fff;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+        min-height: 350px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+    }
+    .team__about-triangle0::after {
+        content: '';
+        position: absolute;
+        left: 108px;
+        top: -63px;
+        border: 30px solid transparent;
+        border-bottom: 40px solid #fff;
+    }
+    .team__about-triangle1::after {
+        content: '';
+        position: absolute;
+        left: 400px;
+        top: -63px;
+        border: 30px solid transparent;
+        border-bottom: 40px solid #fff;
+    }
+    .team__about-triangle2::after {
+        content: '';
+        position: absolute;
+        left: 708px;
+        top: -63px;
+        border: 30px solid transparent;
+        border-bottom: 40px solid #fff;
+    }
+    .team__about-triangle3::after {
+        content: '';
+        position: absolute;
+        left: 1008px;
+        top: -63px;
+        border: 30px solid transparent;
+        border-bottom: 40px solid #fff;
+    }
+
+    &__about-inner {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        width: 640px;
+        min-height: 210px;
+    }
+
+    &__about-inner-header {
+        font-family: $font-Poppins;
+        font-weight: 500;
+        font-size: 20px;
+        color: #272727;
+        text-align: left;
+        padding-bottom: 25px;
+    }
+
+    &__about-inner-text {
+        @include paragraphs();
+        text-align: left;
+    }
+
+    &__about-social {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        ul {
+            text-align: left;
+            padding: 0;
+            padding-left: 25px;
+        }
+
+        li {
+            padding-bottom: 10px;
+
+        }
+
+        a {
+            font-family: $font-Poppins;
+            font-weight: 400;
+            font-size: 15px;
+            color: $text-color;
+            padding-left: 3px;
+
+        }
+
+        .face:before {
+            content: "\f082";
+            font-family: $font-icon;
+            padding-right: 5px;
+            font-size: 15px;
+        }
+
+        .twit:before {
+            content: "\f081";
+            font-family: $font-icon;
+            padding-right: 5px;
+        }
+
+        .linke:before {
+            content: "\f08c";
+            font-family: $font-icon;
+            padding-right: 5px;
+        }
+
+        .inst:before {
+            content: "\f16d";
+            font-family: $font-icon;
+            padding-right: 5px;
+        }
+    }
+
+    &__about-socail-links {
+        border-left: 2px solid #efefef;
+    }
+
+    &__about-social-arrow {
+        padding-right: 35px;
+    }
+}

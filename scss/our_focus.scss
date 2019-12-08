@@ -1,0 +1,52 @@
+@import 'mixins';
+.our__focus {
+    background: url(../img/focus-bg2.png), $bg-color;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    &-header {
+        @include headers();
+        padding-top: 120px;
+    }
+
+    &-subtitle {
+        @include subtitle();
+        line-height: 50px;
+
+
+    }
+
+    &-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 60px;
+        padding-bottom: 140px;
+
+    }
+
+    &-content-item {
+        background: #fff;
+        margin-left: 15px;
+        margin-right: 15px;
+        border-bottom: 3px solid;
+    }
+
+    &-content-item-img {
+        min-height: 60px;
+        margin-top: 55px;
+    }
+
+    &-content-item-header {
+        font-family: $font-Poppins;
+        font-weight: 500;
+        font-size: 20px;
+        padding-top: 10px;
+    }
+
+    &-content-item-text {
+        @include paragraphs();
+        padding: 30px;
+    }
+
+}

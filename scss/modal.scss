@@ -1,0 +1,68 @@
+@import 'mixins';
+.modal_window{
+    width: 450px;
+    height: 245px;
+    background: #cccccc;
+    margin: 1px auto;
+    position: fixed;
+    top: 35%;
+    left: 38%;
+
+
+    form{
+        text-align: center;
+        padding-top: 1px;
+    }
+    .submit__button{
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+        letter-spacing: 0.7px;
+        background: #fc5f45 !important;
+        border-radius: 30px;
+        padding-left: 35px;
+        padding-right: 35px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border: 1px solid #fc5f45;
+        cursor: pointer;
+
+
+
+    }
+
+
+}
+.close{
+    margin-left: 425px;
+    width: 30px;
+    display: inline-block;
+
+}
+.close::before{
+    content: "\e904";
+    font-family: $font-icon;
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 20;
+    display: none;
+    transition-property: all;
+    transition-duration: 3s;
+    z-index: 999;
+  }

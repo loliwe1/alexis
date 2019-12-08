@@ -1,0 +1,47 @@
+@import 'mixins';
+
+.about__us {
+    position: relative;
+
+    &-photo {
+        width: 555px;
+        height: 750px;
+        background: url(../img/about-us.jpg) center no-repeat;
+        margin-top: 150px;
+        margin-bottom: 150px;
+        z-index: -1;
+        @include border;
+    }
+
+    &-content {
+        background: url(../img/about2.png), #fff;
+        background-position: top left;
+        background-repeat: no-repeat;
+        width: 650px;
+        height: 550px;
+        padding-top: 95px;
+        padding-bottom: 80px;
+        padding-left: 80px;
+        padding-right: 85px;
+        text-align: left;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+        position: absolute;
+        top: 78px;
+        left: 518px;
+        z-index: 5;
+    }
+
+    &-content-header {
+        @include headers();
+        position: relative;
+        z-index: 120;
+    }
+
+    &-content-text {
+        @include paragraphs();
+        margin-bottom: 30px;
+    }
+
+    
+
+}

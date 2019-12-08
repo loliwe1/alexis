@@ -1,0 +1,82 @@
+@import 'mixins';
+
+.statistic {
+    background: url(../img/statistic-bg.jpg) no-repeat;
+    background-position-y: 0;
+    width: 100%;
+    min-height: 465px;
+    position: relative;
+    z-index: 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: $bg-blackout;
+        z-index: 1;
+    }
+}
+
+.statistic__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    max-width: 1035px;
+    margin: 0 auto;
+}
+
+.statistic__inner-item-img {
+    margin-top: 130px;
+    margin-bottom: 20px;
+}
+
+.statistic__inner-item-numer {
+    color: #fff;
+    font-family: $font-Poppins;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.statistic__inner-tem-text {
+    @include paragraphs();
+    color: rgba(254, 254, 254, 0.702);
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.statistic__inner-tem-point {
+    border: 1px solid;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.point {
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 2px auto;
+}
+
+.point-bg0 {
+    background: $color0;
+}
+
+.point-bg1 {
+    background: $color1;
+}
+
+.point-bg2 {
+    background: $color2;
+}
+
+.point-bg3 {
+    background: $color3;
+}

@@ -1,0 +1,62 @@
+$font-Poppins: 'Poppins',
+sans-serif;
+$font-LibreBaskerville: 'Libre Baskerville',
+serif;
+$font-Sacramento: 'Sacramento',
+cursive;
+$font-icon: 'icomoon' !important;
+$color0: #fc5f45 !important;
+$color1: #38c695 !important;
+$color2: #b27cf5 !important;
+$color3: #feb960 !important;
+$bg-color: #f7f7f7;
+$text-color: #616161 !important;
+$border-width: 100%/4;
+$bg-blackout: rgba(#3f4049, 0.8);
+
+@font-face {
+    font-family: Wisdom ;
+    src: url(../fonts/Wisdom\ Script\ AJ.otf);
+
+}
+
+//===MIXINS===
+@mixin headers {
+    font-family: $font-LibreBaskerville;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 80px;
+    color: #313131;
+}
+
+@mixin paragraphs {
+    font-family: $font-Poppins;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #616161;
+}
+
+@mixin face__signature {
+    font-family: $font-Sacramento;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 80px;
+    color: #272727;
+}
+
+@mixin border {
+    border: 10px solid rgba(#a3a3a3, 0.6);
+}
+
+@mixin subtitle {
+    font-family: $font-Poppins;
+    font-weight: 400;
+    color: $text-color;
+    font-size: 18px;
+}
+
+@mixin border__bottom($br-color) {
+    border-bottom: 3px solid;
+    border-color: $br-color;
+}
