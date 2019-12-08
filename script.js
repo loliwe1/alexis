@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
     'use strict'
-// Preloader-----------------------------------------------------
+    // Preloader-----------------------------------------------------
     setTimeout(function () {
         const preloader = document.querySelector('.preloader');
 
@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
             preloader.classList.add('done');
         }
     }, 500)
-// Top navigation --------------------------------------------
+    // Top navigation --------------------------------------------
 
     let topNav = document.querySelector('.header__top');
 
@@ -298,11 +298,11 @@ window.addEventListener('load', function () {
     let feedbackButtonEmail = document.querySelector('.feedback__email');
     let feedbackForm = document.querySelector('.feedback__form');
 
-    inputArea.addEventListener('focus', ()=> {
+    inputArea.addEventListener('focus', () => {
         inputArea.style.border = '2px solid #fc5f45'
     })
 
-    inputArea.addEventListener('blur', ()=> {
+    inputArea.addEventListener('blur', () => {
         inputArea.style.border = '2px solid #efefef'
     })
 
@@ -333,7 +333,7 @@ window.addEventListener('load', function () {
 
     feedbackButton.addEventListener('click', (event) => {
         event.preventDefault();
-        if(feedbackButtonEmail.value && mailReg.test(feedbackButtonEmail.value) ) {
+        if (feedbackButtonEmail.value && mailReg.test(feedbackButtonEmail.value)) {
             div.style.cssText = `color: #fc5f45;
                                  font-size: 20px;
                                  padding-left: 35px;
@@ -348,7 +348,7 @@ window.addEventListener('load', function () {
             setTimeout(() => {
                 div.style.display = 'none';
             }, 3000);
-        }else {
+        } else {
             div.style.cssText = `color: red;
                                  font-size: 20px;
                                  padding-left: 35px;`
@@ -357,9 +357,28 @@ window.addEventListener('load', function () {
         }
     });
 
+    //Portfolio -----------------------------------------
+    const portfolio = document.querySelector('.portfolio__inner');
+    const portfolioItems = portfolio.querySelectorAll('.portfolio__inner-img');
+    const portfolioProject = document.querySelectorAll('.portfolio__project');
+    const portfolioProjectActive = document.querySelector('.portfolio__inner-item-active');
+
+    let currentElem = null;
 
 
+    portfolio.addEventListener('mouseover', event => {
+        let target = event.target;
+        
 
+        for (let i = 0; i < portfolioItems.length; i++) {
+            if(target === portfolioItems[i]){
+                portfolioItems[i].previousElementSibling.classList.add('portfolio__inner-item-active');
+                portfolioProject[i].classList.add('portfolio__project-top');
+ 
+            }
+            
+        }
+    });
 
 
 

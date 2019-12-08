@@ -132,6 +132,32 @@ textarea:focus:-ms-input-placeholder {
   color: #feb960 !important;
 }
 
+.content-borders {
+  display: flex;
+  justify-content: space-between;
+  width: 490px;
+}
+
+.content-border0 {
+  border-bottom: 3px solid #fc5f45 !important;
+  width: 25%;
+}
+
+.content-border1 {
+  border-bottom: 3px solid #38c695 !important;
+  width: 25%;
+}
+
+.content-border2 {
+  border-bottom: 3px solid #b27cf5 !important;
+  width: 25%;
+}
+
+.content-border3 {
+  border-bottom: 3px solid #feb960 !important;
+  width: 25%;
+}
+
 .hovers {
   color: #fc5f45 !important;
 }
@@ -305,27 +331,6 @@ textarea:focus:-ms-input-placeholder {
   color: #616161;
   margin-bottom: 30px;
 }
-.about__us-content-borders {
-  display: flex;
-  justify-content: space-between;
-  width: 490px;
-}
-.about__us-content-border0 {
-  border-bottom: 3px solid #fc5f45 !important;
-  width: 25%;
-}
-.about__us-content-border1 {
-  border-bottom: 3px solid #38c695 !important;
-  width: 25%;
-}
-.about__us-content-border2 {
-  border-bottom: 3px solid #b27cf5 !important;
-  width: 25%;
-}
-.about__us-content-border3 {
-  border-bottom: 3px solid #feb960 !important;
-  width: 25%;
-}
 
 .our__focus {
   background: url(../img/focus-bg2.png), #f7f7f7;
@@ -480,16 +485,60 @@ textarea:focus:-ms-input-placeholder {
   margin-right: 10px;
   margin-bottom: 20px;
   position: relative;
-  transition: 0.4s;
-  z-index: 20;
   cursor: pointer;
+  width: 360px;
+  height: 287px;
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  overflow-y: hidden;
 }
-.portfolio__inner-item:hover {
-  background: #fff;
+.portfolio__inner-item-active {
+  background: rgba(38, 39, 50, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
 }
-.portfolio__inner-item:hover img {
-  height: 80%;
-  width: 95%;
+.portfolio__inner-item-active {
+  transition: 0.2s all;
+}
+.portfolio__inner-item-active a::before {
+  content: "\e905";
+  font-family: "icomoon" !important;
+  font-size: 65px;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.portfolio__project {
+  width: 100%;
+  height: 100px;
+  background: white;
+  position: relative;
+  top: -5px;
+  transition: 0.5s all;
+}
+.portfolio__project-name {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 20px;
+}
+.portfolio__project-top {
+  top: -80px;
+  transition: 0.5s all;
+}
+.portfolio-borders {
+  width: 360px;
 }
 
 .team {
@@ -1642,7 +1691,7 @@ textarea:focus:-ms-input-placeholder {
 }
 
 .close::before {
-  content: "\ea0d";
+  content: "\e904";
   font-family: "icomoon" !important;
   font-weight: 400;
   font-size: 20px;
