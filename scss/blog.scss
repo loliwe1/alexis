@@ -134,3 +134,37 @@
     @include paragraphs();
     margin-bottom: 30px;
 }
+
+@media (max-width: 1200px) {
+    .blog {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+
+    .blog__inner {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .blog__inner-big {
+        width: 100%;
+    }
+
+    .blog__inner-small {
+
+        width: 100%;
+
+    }
+
+    .blog__inner-small-item {
+        margin-top: 20px;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .blog__inner-big-header {
+        display: block;
+
+    }
+}

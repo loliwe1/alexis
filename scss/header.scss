@@ -1,13 +1,14 @@
 @import 'mixins';
+
 .header__top {
     width: 100%;
-    max-height: 75px;
+    min-height: 75px;
     position: fixed;
-    z-index: 100;
+    z-index: 999;
     background: white;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.25);
 
-    .top-logo{
+    .top-logo {
         font-family: Wisdom;
         font-size: 50px;
         margin-top: 0;
@@ -16,12 +17,19 @@
         cursor: pointer;
         font-weight: 500;
 
-        span{
-           color: $color0;
+        span {
+            color: $color0;
         }
     }
 
     &-nav {
+        padding-left: 0;
+        ul {
+            padding-left: 0;
+            margin: 0;
+            text-align: center;
+        }
+
         li {
             display: inline-block;
             margin-left: 20px;
@@ -41,21 +49,14 @@
         padding-top: 10px;
         padding-bottom: 10px;
         transition: all ease 0.25s;
-     
+
     }
 }
-.header__top1{
+
+.header__top1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.container {
-    width: 1200px;
-    margin: 0 auto;
-    padding-right: 15px;
-    padding-left: 15px;
-    text-align: center;
 }
 
 .header__content {
@@ -132,4 +133,73 @@
         line-height: 35px;
     }
 
+
+}
+
+.header__burger {
+    display: none;
+}
+
+.header__burger::before {
+    content: "\e9bd";
+    font-family: $font-icon;
+    font-weight: 400;
+    font-size: 50px;
+    text-decoration: none;
+    color: $color0;
+    cursor: pointer;
+
+
+}
+
+.header__media {
+    display: block;
+}
+//Media -----------------------------------------------------
+@media (min-width: 1200px){
+    .header__content {
+        background: url(../img/header-bg.jpg) center no-repeat;
+        max-width: 100vw;
+        min-height: 862px;
+        position: relative;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .header__top1 {
+        display: block;
+    }
+
+    .header__media {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .header__content-inner{
+        width: 100%;
+    }
+
+    .header__burger {
+        display: block;
+    }
+
+
+    .header__content-inner-icons{
+        flex-direction: column;
+    }
+}
+@media (max-width: 576px) {
+    .header__content-inner-header{
+        line-height: 10px;
+        font-size: 45px;
+    }
+    .header__content-inner-icons-elem{
+        line-height: 20px;
+    }
+    .header__content {
+        min-height: 0%;
+}
 }

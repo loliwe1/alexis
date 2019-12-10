@@ -1,4 +1,5 @@
 @import 'mixins';
+
 .team {
     min-height: 1230px;
     background: url(../img/team-bg.png), $bg-color;
@@ -31,8 +32,9 @@
         border-bottom: 3px solid;
         cursor: pointer;
 
-        
+
     }
+
     &__inner-item-name {
         @include paragraphs();
         font-weight: 500;
@@ -56,7 +58,9 @@
         justify-content: space-around;
         align-items: center;
         position: relative;
+        margin-bottom: 20px;
     }
+
     .team__about-triangle0::after {
         content: '';
         position: absolute;
@@ -65,6 +69,7 @@
         border: 30px solid transparent;
         border-bottom: 40px solid #fff;
     }
+
     .team__about-triangle1::after {
         content: '';
         position: absolute;
@@ -73,6 +78,7 @@
         border: 30px solid transparent;
         border-bottom: 40px solid #fff;
     }
+
     .team__about-triangle2::after {
         content: '';
         position: absolute;
@@ -81,6 +87,7 @@
         border: 30px solid transparent;
         border-bottom: 40px solid #fff;
     }
+
     .team__about-triangle3::after {
         content: '';
         position: absolute;
@@ -169,4 +176,59 @@
     &__about-social-arrow {
         padding-right: 35px;
     }
+
+    @media (max-width: 1200px) {
+        &__inner-items {
+            justify-content: space-around;
+        }
+
+        &__inner-item {
+            padding: 2px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        &__inner-items {
+            justify-content: space-around;
+        }
+
+        &__about {
+            background: #fff;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+            min-height: 350px;
+            display: block;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+        }
+
+        &__about-inner {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 100%;
+            min-height: 0%;
+        }
+
+        &__about-inner-header {
+            font-family: $font-Poppins;
+            font-weight: 500;
+            font-size: 20px;
+            color: #272727;
+            text-align: left;
+            padding: 10px;
+        }
+
+        &__about-inner-text {
+            padding: 10px;
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__inner-items {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
 }

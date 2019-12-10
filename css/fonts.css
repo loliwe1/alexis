@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?od50gy');
-  src:  url('../fonts/icomoon.eot?od50gy#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?od50gy') format('truetype'),
-    url('../fonts/icomoon.woff?od50gy') format('woff'),
-    url('../fonts/icomoon.svg?od50gy#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?7junbj');
+  src:  url('../fonts/icomoon.eot?7junbj#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?7junbj') format('truetype'),
+    url('../fonts/icomoon.woff?7junbj') format('woff'),
+    url('../fonts/icomoon.svg?7junbj#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,17 +25,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-add-outline:before {
-  content: "\e905";
-}
 .icon-checkmark-outline:before {
   content: "\e901";
+}
+.icon-add_circle_outline:before {
+  content: "\e907";
 }
 .icon-play_circle_outline:before {
   content: "\e903";
 }
 .icon-check_circle_outline:before {
   content: "\e902";
+}
+.icon-plus-circle:before {
+  content: "\e906";
 }
 .icon-play-circle:before {
   content: "\e900";
@@ -45,6 +48,9 @@
 }
 .icon-quotes-left:before {
   content: "\e977";
+}
+.icon-menu:before {
+  content: "\e9bd";
 }
 .icon-cancel-circle:before {
   content: "\ea0d";

@@ -1,4 +1,5 @@
 @import 'mixins';
+
 .our__focus {
     background: url(../img/focus-bg2.png), $bg-color;
     background-position: top center;
@@ -48,5 +49,24 @@
         @include paragraphs();
         padding: 30px;
     }
+
+    @media (max-width: 992px) {
+        &-content-item {
+            background: #fff;
+            margin-left: 1px;
+            margin-right: 1px;
+            border-bottom: 3px solid;
+        }
+    }
+
+    @media (max-width: 850px) {
+        &-content {
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 10px;
+        }
+    }
+
 
 }

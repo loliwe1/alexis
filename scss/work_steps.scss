@@ -113,3 +113,49 @@
     top: -350px;
     left: 700px;
 }
+
+@media (max-width: 1200px) {
+    .work__steps {
+        min-height: 0%;
+        margin-bottom: 20px;
+    }
+
+    .work__steps-info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .work__steps-photos {
+        display: none;
+    }
+
+    .work__steps-info-item {
+        position: static;
+        margin: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .work__steps-inner {
+        padding-top: 25px;
+    }
+
+    .work__steps-info-item {
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 15px;
+    }
+    .margin-text1 {
+        margin-left: 0;
+    }
+
+    .work__steps-info-item-text {
+        width: 100%;
+        min-height: 0%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+
+}

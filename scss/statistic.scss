@@ -80,3 +80,28 @@
 .point-bg3 {
     background: $color3;
 }
+
+@media (max-width: 992px) {
+    .statistic {
+        min-height: 0%;
+    }
+    .statistic__inner-item{
+        margin: 10px;
+        padding: 0;
+    }
+
+    .statistic__inner-item-img {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px){
+    .statistic__inner {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+    }
+}
+
