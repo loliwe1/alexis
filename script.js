@@ -8,6 +8,20 @@ window.addEventListener('load', function () {
             preloader.classList.add('done');
         }
     }, 500)
+    // Bureger 
+
+    const burger = document.querySelector('.header__burger');
+    const navigation = document.querySelector('.header__top-nav');
+
+    burger.addEventListener('click', () => {
+        if (navigation.style.display === 'block') {
+            navigation.style.display = 'none';
+        } else {
+            navigation.style.display = 'block';
+        }
+    });
+
+
     // Top navigation --------------------------------------------
 
     let topNav = document.querySelector('.header__top');
@@ -368,15 +382,15 @@ window.addEventListener('load', function () {
 
     portfolio.addEventListener('mouseover', event => {
         let target = event.target;
-        
+
 
         for (let i = 0; i < portfolioItems.length; i++) {
-            if(target === portfolioItems[i]){
+            if (target === portfolioItems[i]) {
                 portfolioItems[i].previousElementSibling.classList.add('portfolio__inner-item-active');
                 portfolioProject[i].classList.add('portfolio__project-top');
- 
+
             }
-            
+
         }
     });
 
@@ -386,7 +400,7 @@ window.addEventListener('load', function () {
 
     AOS.init({
         // Global settings:
-        disable: 'phone' , // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        disable: 'phone', // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
         startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
         initClassName: 'aos-init', // class applied after initialization
         animatedClassName: 'aos-animate', // class applied on animation
