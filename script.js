@@ -1,5 +1,8 @@
-window.addEventListener('load', function () {
+(function(){
     'use strict'
+
+window.addEventListener('load', function () {
+    
     // Preloader-----------------------------------------------------
     setTimeout(function () {
         const preloader = document.querySelector('.preloader');
@@ -96,6 +99,8 @@ window.addEventListener('load', function () {
     const logoBottom = document.querySelector('.bottom-logo');
 
     const headerButton = document.querySelector('.header__content-inner-button');
+
+    
 
     headerButton.addEventListener('click', event => {
         event.preventDefault();
@@ -424,3 +429,5 @@ window.addEventListener('load', function () {
 
 
 });
+
+}());

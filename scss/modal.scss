@@ -1,5 +1,6 @@
 @import 'mixins';
-.modal_window{
+
+.modal_window {
     width: 450px;
     height: 245px;
     background: #cccccc;
@@ -9,11 +10,12 @@
     left: 38%;
 
 
-    form{
+    form {
         text-align: center;
         padding-top: 1px;
     }
-    .submit__button{
+
+    .submit__button {
         font-family: "Poppins", sans-serif;
         font-weight: 600;
         font-size: 16px;
@@ -37,13 +39,15 @@
 
 
 }
-.close{
+
+.close {
     margin-left: 425px;
     width: 30px;
     display: inline-block;
 
 }
-.close::before{
+
+.close::before {
     content: "\e904";
     font-family: $font-icon;
     font-weight: 400;
@@ -65,4 +69,21 @@
     transition-property: all;
     transition-duration: 3s;
     z-index: 999;
-  }
+}
+
+@media (max-width: 1200px) {
+    .modal_window {
+        position: static;
+        margin: 50% auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal_window {
+        width: 90%;
+    }
+    .submit__button {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
