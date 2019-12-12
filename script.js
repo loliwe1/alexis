@@ -83,6 +83,32 @@
     const logoBottom = document.querySelector('.bottom-logo');
     const headerButton = document.querySelector('.header__content-inner-button');
 
+    nav.addEventListener('click', event => {
+        let target = event.target;
+        for (let i = 0; i < navItem.length; i++) {
+            if (target.tagName === 'A') {
+                navItem[i].style.color = '#272727';
+            }
+            if (target === navItem[i]) {
+                navItem[i].style.color = '#fc5f45';
+            }
+        }
+    });
+
+    for (let i = 0; i < navItem.length; i++) {
+        navItem[i].addEventListener('click', event => {
+            event.preventDefault();
+            if (event.target === navItem[i]) {
+                let anch = document.querySelector(navItem[i].getAttribute('href'));
+                anch.scrollIntoView({
+                    block: 'start',
+                    behavior: 'smooth'
+                });
+            }
+        });
+    };
+
+
     headerButton.addEventListener('click', event => {
         event.preventDefault();
 
@@ -106,22 +132,6 @@
             behavior: "smooth"
         });
     };
-
-    for (let i = 0; i < navItem.length; i++) {
-        navItem[i].addEventListener('click', event => {
-            event.preventDefault();
-            if (event.target === navItem[i]) {
-                let anch = document.querySelector(navItem[i].getAttribute('href'));
-                anch.scrollIntoView({
-                    block: 'start',
-                    behavior: 'smooth'
-                });
-            }
-
-        });
-    };
-
-
 
     // slider --------------------------------------------------------------
     let sliderItem = document.querySelectorAll('.testimonials__slider-content');
@@ -398,15 +408,10 @@
     });
 
     //Portfolio -----------------------------------------
-    const portfolio = document.querySelector('.portfolio__inner');
     const portfolioItem = document.querySelectorAll('.portfolio__inner-item');
-    const portfolioItems = portfolio.querySelectorAll('.portfolio__inner-img');
     const portfolioProject = document.querySelectorAll('.portfolio__project');
-    const portfolioProjectActive = document.querySelector('.portfolio__inner-item-active');
 
-
-
-    for(let i = 0; i< portfolioItem.length; i++){
+    for (let i = 0; i < portfolioItem.length; i++) {
         portfolioItem[i].addEventListener('mouseenter', event => {
             portfolioItem[i].firstElementChild.classList.add('portfolio__inner-item-active');
             portfolioProject[i].style.top = '-80px';
@@ -416,6 +421,5 @@
             portfolioProject[i].style.top = '-5px';
         })
     }
-
 
 }());
