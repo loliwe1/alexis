@@ -1,16 +1,49 @@
-(function(){
+(function () {
     'use strict'
 
-window.addEventListener('load', function () {
-    
     // Preloader-----------------------------------------------------
-    setTimeout(function () {
+    window.addEventListener('DOMContentLoaded', () => {
         const preloader = document.querySelector('.preloader');
+        const loader = document.querySelector('.loader');
 
-        if (!preloader.classList.contains('done')) {
-            preloader.classList.add('done');
+        if (document.documentElement.clientWidth < 1200) {
+            preloader.style.display = 'none';
+            loader.style.left = '42%';
+            loader.style.top = '42%';
+
+        } else {
+            setTimeout(function () {
+                if (!preloader.classList.contains('done')) {
+                    preloader.classList.add('done');
+                    console.log(document.documentElement.clientWidth);
+                }
+            }, 500)
         }
-    }, 500)
+
+        // Animate On Scroll Library (https://michalsnik.github.io/aos/)--------------------------
+        AOS.init({
+            // Global settings:
+            disable: 'phone', // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+            initClassName: 'aos-init', // class applied after initialization
+            animatedClassName: 'aos-animate', // class applied on animation
+            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+            offset: 120, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 2000, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: true, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+        });
+    });
     // Bureger 
 
     const burger = document.querySelector('.header__burger');
@@ -41,6 +74,52 @@ window.addEventListener('load', function () {
             target.classList.remove('hovers');
         }
     });
+
+    // anchors -----------------------------------------------------------
+
+    let nav = document.querySelector('.header__top-nav');
+    let navItem = nav.querySelectorAll('a');
+    const logoTop = document.querySelector('.top-logo');
+    const logoBottom = document.querySelector('.bottom-logo');
+    const headerButton = document.querySelector('.header__content-inner-button');
+
+    headerButton.addEventListener('click', event => {
+        event.preventDefault();
+
+        scrollTo({
+            top: 3200,
+            behavior: 'smooth'
+        });
+
+    });
+
+    logoTop.onclick = function () {
+        scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
+    logoBottom.onclick = function () {
+        scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
+    for (let i = 0; i < navItem.length; i++) {
+        navItem[i].addEventListener('click', event => {
+            event.preventDefault();
+            if (event.target === navItem[i]) {
+                let anch = document.querySelector(navItem[i].getAttribute('href'));
+                anch.scrollIntoView({
+                    block: 'start',
+                    behavior: 'smooth'
+                });
+            }
+
+        });
+    };
 
 
 
@@ -91,59 +170,6 @@ window.addEventListener('load', function () {
         }
     });
 
-    // anchors -----------------------------------------------------------
-
-    let nav = document.querySelector('.header__top-nav');
-    let navItem = nav.querySelectorAll('a');
-    const logoTop = document.querySelector('.top-logo');
-    const logoBottom = document.querySelector('.bottom-logo');
-
-    const headerButton = document.querySelector('.header__content-inner-button');
-
-    
-
-    headerButton.addEventListener('click', event => {
-        event.preventDefault();
-
-        scrollTo({
-            top: 3200,
-            behavior: 'smooth'
-        });
-
-    });
-
-
-
-    logoTop.onclick = function () {
-        scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    };
-
-    logoBottom.onclick = function () {
-        scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    };
-
-
-
-    for (let i = 0; i < navItem.length; i++) {
-        navItem[i].addEventListener('click', event => {
-            event.preventDefault();
-            if (event.target === navItem[i]) {
-                let anch = document.querySelector(navItem[i].getAttribute('href'));
-                anch.scrollIntoView({
-                    block: 'start',
-                    behavior: 'smooth'
-                });
-            }
-
-        });
-    };
-
     // forms ------------------------
     let form = document.forms.feedback;
 
@@ -166,10 +192,6 @@ window.addEventListener('load', function () {
             }
         }
     })
-
-
-
-
 
     // Our Team ------------------------------------------------------------
 
@@ -202,7 +224,6 @@ window.addEventListener('load', function () {
         }
 
     });
-
 
     // video -----------------------------------------------------------------------------
     const video = document.querySelector('.video');
@@ -378,56 +399,23 @@ window.addEventListener('load', function () {
 
     //Portfolio -----------------------------------------
     const portfolio = document.querySelector('.portfolio__inner');
+    const portfolioItem = document.querySelectorAll('.portfolio__inner-item');
     const portfolioItems = portfolio.querySelectorAll('.portfolio__inner-img');
     const portfolioProject = document.querySelectorAll('.portfolio__project');
     const portfolioProjectActive = document.querySelector('.portfolio__inner-item-active');
 
-    let currentElem = null;
 
 
-    portfolio.addEventListener('mouseover', event => {
-        let target = event.target;
+    for(let i = 0; i< portfolioItem.length; i++){
+        portfolioItem[i].addEventListener('mouseenter', event => {
+            portfolioItem[i].firstElementChild.classList.add('portfolio__inner-item-active');
+            portfolioProject[i].style.top = '-80px';
+        });
+        portfolioItem[i].addEventListener('mouseleave', event => {
+            portfolioItem[i].firstElementChild.classList.remove('portfolio__inner-item-active');
+            portfolioProject[i].style.top = '-5px';
+        })
+    }
 
-
-        for (let i = 0; i < portfolioItems.length; i++) {
-            if (target === portfolioItems[i]) {
-                portfolioItems[i].previousElementSibling.classList.add('portfolio__inner-item-active');
-                portfolioProject[i].classList.add('portfolio__project-top');
-
-            }
-
-        }
-    });
-
-
-
-    // Animate On Scroll Library (https://michalsnik.github.io/aos/)--------------------------
-
-    AOS.init({
-        // Global settings:
-        disable: 'phone', // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-        initClassName: 'aos-init', // class applied after initialization
-        animatedClassName: 'aos-animate', // class applied on animation
-        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-
-        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-        offset: 120, // offset (in px) from the original trigger point
-        delay: 0, // values from 0 to 3000, with step 50ms
-        duration: 2000, // values from 0 to 3000, with step 50ms
-        easing: 'ease', // default easing for AOS animations
-        once: true, // whether animation should happen only once - while scrolling down
-        mirror: false, // whether elements should animate out while scrolling past them
-        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-    });
-
-
-
-});
 
 }());
