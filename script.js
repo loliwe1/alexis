@@ -108,7 +108,6 @@
         });
     };
 
-
     headerButton.addEventListener('click', event => {
         event.preventDefault();
 
