@@ -2,7 +2,7 @@
     'use strict'
 
     // Preloader-----------------------------------------------------
-    window.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
         const preloader = document.querySelector('.preloader');
         const loader = document.querySelector('.loader');
 
@@ -11,14 +11,11 @@
             loader.style.left = '42%';
             loader.style.top = '42%';
 
-        } else {
-            setTimeout(function () {
-                if (!preloader.classList.contains('done')) {
+        } else if (!preloader.classList.contains('done')) {
                     preloader.classList.add('done');
-                    console.log(document.documentElement.clientWidth);
                 }
-            }, 500)
-        }
+
+
 
         // Animate On Scroll Library (https://michalsnik.github.io/aos/)--------------------------
         AOS.init({
@@ -43,8 +40,7 @@
             anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
         });
-    });
-    // Bureger 
+    // Burger menu 
 
     const burger = document.querySelector('.header__burger');
     const navigation = document.querySelector('.header__top-nav');
@@ -190,7 +186,7 @@
                 target.style.border = '1px solid #fc5f45';
             }
         }
-    })
+    });
 
     form.addEventListener('focusout', event => {
         let target = event.target;
@@ -200,7 +196,7 @@
                 target.style.border = '1px solid #efefef';
             }
         }
-    })
+    });
 
     // Our Team ------------------------------------------------------------
 
@@ -411,14 +407,15 @@
     const portfolioProject = document.querySelectorAll('.portfolio__project');
 
     for (let i = 0; i < portfolioItem.length; i++) {
-        portfolioItem[i].addEventListener('mouseenter', event => {
+        portfolioItem[i].addEventListener('mouseenter', () => {
             portfolioItem[i].firstElementChild.classList.add('portfolio__inner-item-active');
             portfolioProject[i].style.top = '-80px';
         });
-        portfolioItem[i].addEventListener('mouseleave', event => {
+        portfolioItem[i].addEventListener('mouseleave', () => {
             portfolioItem[i].firstElementChild.classList.remove('portfolio__inner-item-active');
             portfolioProject[i].style.top = '-5px';
         })
     }
+});
 
 }());
